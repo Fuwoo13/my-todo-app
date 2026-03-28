@@ -2,8 +2,9 @@ import { useState, useEffect } from 'react';
 import './App.css';
 
 // 배포/로컬 환경에 맞춰 API 주소 자동 설정
-const API_URL = import.meta.env.DEV ? 'http://127.0.0.1:5000/api' : '/api';
-
+const API_URL = import.meta.env.DEV 
+  ? 'http://localhost:5000/api' 
+  : '/api';
 function App() {
   const [todos, setTodos] = useState([]);
   const [title, setTitle] = useState('');
