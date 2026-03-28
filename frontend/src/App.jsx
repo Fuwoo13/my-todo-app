@@ -3,7 +3,7 @@ import './App.css';
 
 // Vercel 배포 시 환경 변수에서 URL을 가져오고, 로컬에서는 5000번 포트 사용
 // 변경 후
-const API_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:5000/api';
+const API_URL = import.meta.env.DEV ? 'http://127.0.0.1:5000/api' : '/api';
 
 function App() {
   const [todos, setTodos] = useState([]);
