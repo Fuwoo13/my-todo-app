@@ -1,18 +1,132 @@
-* { box-sizing: border-box; }
-body { font-family: 'Pretendard', sans-serif; background-color: #f4f7f6; margin: 0; display: flex; justify-content: center; padding: 50px 20px; }
-.app-container { width: 100%; max-width: 480px; background: white; padding: 30px; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
-h1 { text-align: center; color: #333; margin-bottom: 24px; }
-.input-section { display: flex; gap: 10px; margin-bottom: 24px; }
-.input-section input { flex: 1; padding: 12px 16px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px; outline: none; transition: border 0.2s; }
-.input-section input:focus { border-color: #007bff; }
-.input-section button { padding: 12px 20px; background-color: #007bff; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; transition: background 0.2s; }
-.input-section button:hover { background-color: #0056b3; }
-ul { list-style: none; padding: 0; margin: 0; }
-li { display: flex; align-items: center; justify-content: space-between; padding: 12px; background: #fafafa; border-radius: 8px; margin-bottom: 8px; border: 1px solid #eee; transition: all 0.2s; }
-li:hover { transform: translateY(-2px); box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
-.todo-content { display: flex; align-items: center; gap: 12px; cursor: pointer; }
-.todo-content input[type="checkbox"] { width: 18px; height: 18px; cursor: pointer; }
-.todo-text { font-size: 16px; color: #333; }
-.todo-text.completed { text-decoration: line-through; color: #aaa; }
-.delete-btn { background: #ff4d4f; color: white; border: none; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 14px; }
-.delete-btn:hover { background: #d9363e; }
+/* 🌙 Modern Dark Mode Theme */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  /* 아주 깊고 세련된 네이비/블랙 배경 */
+  background-color: #0f172a; 
+  color: #f8fafc; 
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.App {
+  /* Todo 리스트를 감싸는 컨테이너 */
+  background-color: #1e293b; 
+  width: 100%;
+  max-width: 480px;
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); 
+  border: 1px solid #334155;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 32px;
+  font-weight: 800;
+  /* 제목에 네온 블루 그라데이션 포인트 */
+  background: linear-gradient(135deg, #38bdf8, #818cf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.input-container {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 14px 18px;
+  border-radius: 12px;
+  border: 1px solid #475569;
+  background-color: #0f172a;
+  color: #f8fafc;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+/* 입력창 클릭 시 네온 블루 테두리 발광 효과 */
+input[type="text"]:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+}
+
+button.add-btn {
+  padding: 0 24px;
+  background: linear-gradient(135deg, #38bdf8, #818cf8);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+button.add-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #334155;
+  padding: 18px 20px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+/* 목록에 마우스 올렸을 때 살짝 튀어나오는 효과 */
+li:hover {
+  transform: translateX(4px);
+  border-color: #475569;
+  background-color: #3b4c6b;
+}
+
+li span {
+  flex: 1;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1.5;
+  word-break: keep-all;
+}
+
+li.completed span {
+  text-decoration: line-through;
+  color: #64748b;
+}
+
+button.delete-btn {
+  background-color: transparent;
+  color: #ef4444;
+  border: 1px solid #ef4444;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+button.delete-btn:hover {
+  background-color: #ef4444;
+  color: white;
+}
