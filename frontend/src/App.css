@@ -6,7 +6,6 @@
 }
 
 body {
-  /* 아주 깊고 세련된 네이비/블랙 배경 */
   background-color: #0f172a; 
   color: #f8fafc; 
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -17,35 +16,40 @@ body {
 }
 
 .App {
-  /* Todo 리스트를 감싸는 컨테이너 */
   background-color: #1e293b; 
-  width: 100%;
-  max-width: 480px;
-  padding: 40px 30px;
+  width: 90%; 
+  max-width: 1200px; 
+  min-height: 80vh; 
+  padding: 50px; 
   border-radius: 20px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); 
   border: 1px solid #334155;
 }
 
+/* ✅ 짤림 방지 특효약이 적용된 제목 */
 h1 {
   text-align: center;
   margin-bottom: 30px;
-  font-size: 32px;
+  font-size: 36px;
   font-weight: 800;
-  /* 제목에 네온 블루 그라데이션 포인트 */
   background: linear-gradient(135deg, #38bdf8, #818cf8);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  line-height: 1.6;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  display: block;
 }
 
 .input-container {
   display: flex;
-  gap: 12px;
-  margin-bottom: 30px;
+  gap: 15px;
+  margin-bottom: 40px;
+  align-items: center;
 }
 
-input[type="text"] {
-  flex: 1;
+.title-input { flex: 3; }
+input[type="text"], input[type="date"] {
   padding: 14px 18px;
   border-radius: 12px;
   border: 1px solid #475569;
@@ -56,14 +60,15 @@ input[type="text"] {
   transition: all 0.3s ease;
 }
 
-/* 입력창 클릭 시 네온 블루 테두리 발광 효과 */
-input[type="text"]:focus {
+input[type="date"] { flex: 1; padding: 14px; }
+.date-separator { color: #f8fafc; font-weight: bold; font-size: 18px; }
+input[type="text"]:focus, input[type="date"]:focus {
   border-color: #38bdf8;
   box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
 }
 
 button.add-btn {
-  padding: 0 24px;
+  padding: 14px 24px;
   background: linear-gradient(135deg, #38bdf8, #818cf8);
   color: white;
   border: none;
@@ -79,9 +84,7 @@ button.add-btn:hover {
   opacity: 0.9;
 }
 
-ul {
-  list-style: none;
-}
+ul { list-style: none; }
 
 li {
   display: flex;
@@ -95,7 +98,6 @@ li {
   border: 1px solid transparent;
 }
 
-/* 목록에 마우스 올렸을 때 살짝 튀어나오는 효과 */
 li:hover {
   transform: translateX(4px);
   border-color: #475569;
@@ -110,9 +112,41 @@ li span {
   word-break: keep-all;
 }
 
-li.completed span {
+/* ✅ 체크박스 스타일 */
+.todo-checkbox {
+  width: 22px;
+  height: 22px;
+  margin-right: 15px;
+  cursor: pointer;
+  accent-color: #38bdf8;
+  flex-shrink: 0;
+}
+
+/* ✅ 완료된 할 일 (박스 반투명 + 뒤로 밀림) */
+li.completed-row {
+  opacity: 0.4;
+  background-color: #0f172a; /* 더 어두운 배경으로 변경 */
+  border: 1px dashed #475569;
+  transform: scale(0.98);
+}
+
+li.completed-row:hover {
+  transform: scale(0.98);
+  background-color: #0f172a;
+  border-color: #475569;
+}
+
+/* ✅ 완료된 텍스트 (취소선) */
+.completed-text {
   text-decoration: line-through;
   color: #64748b;
+}
+
+.deadline-badge {
+  display: inline-block;
+  margin-left: 12px;
+  font-size: 14px;
+  color: #94a3b8;
 }
 
 button.delete-btn {

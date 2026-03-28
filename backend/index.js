@@ -13,10 +13,12 @@ mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log('MongoDB 연결 성공'))
   .catch((err) => console.log('MongoDB 연결 실패:', err));
 
-// Mongoose 스키마 및 모델 정의
+// Mongoose 스키마 및 모델 정의 (여기에 startDate, endDate 방 추가됨!)
 const todoSchema = new mongoose.Schema({
   title: { type: String, required: true },
-  completed: { type: Boolean, default: false }
+  completed: { type: Boolean, default: false },
+  startDate: { type: String },
+  endDate: { type: String }
 });
 const Todo = mongoose.model('Todo', todoSchema);
 
@@ -32,10 +34,14 @@ app.get('/api/todos', async (req, res) => {
   }
 });
 
-// 2. Todo 추가 (Create)
+// 2. Todo 추가 (Create) - 프론트에서 보낸 날짜 데이터 받기
 app.post('/api/todos', async (req, res) => {
   try {
-    const newTodo = new Todo({ title: req.body.title });
+    const newTodo = new Todo({ 
+      title: req.body.title,
+      startDate: req.body.startDate,
+      endDate: req.body.endDate
+    });
     const savedTodo = await newTodo.save();
     res.json(savedTodo);
   } catch (err) {
